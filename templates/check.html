@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link href="/static/styles.css" rel="stylesheet" />
+
+    <title>Find Similarities</title>
+  </head>
+
+  <body>
+    <div>
+      <section class="py-8 px-4 lg:px-10 bg-gray-800">
+        <nav class="relative flex justify-between items-center">
+          <a class="text-2xl text-white font-bold" href="#">
+            <img
+              class="h-10"
+              src="https://cosmetica-media.s3.ap-south-1.amazonaws.com/lg.png"
+              alt=""
+              width="auto"
+            />
+          </a>
+          <div class="lg:hidden">
+            <button class="p-2 navbar-burger">
+              <svg
+                class="w-10 h-3"
+                width="39"
+                height="13"
+                viewbox="0 0 39 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="39" height="2" rx="1" fill="#C4C4C4"></rect>
+                <rect
+                  x="19"
+                  y="11"
+                  width="20"
+                  height="2"
+                  rx="1"
+                  fill="#C4C4C4"
+                ></rect>
+              </svg>
+            </button>
+          </div>
+          <div
+            class="hidden lg:block absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
+          >
+            <ul class="flex items-center text-white space-x-10">
+              <li><a class="text-white font-bold text-lg" href="/">Home</a></li>
+              <span>
+                <svg
+                  width="5"
+                  height="5"
+                  viewbox="0 0 5 5"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="2.5" cy="2.5" r="2.5" fill="#726B6B"></circle>
+                </svg>
+              </span>
+              <li>
+                <a class="text-white font-bold text-lg" href="/about">About</a>
+              </li>
+
+              <span>
+                <svg
+                  width="5"
+                  height="5"
+                  viewbox="0 0 5 5"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="2.5" cy="2.5" r="2.5" fill="#726B6B"></circle>
+                </svg>
+              </span>
+              <li>
+                <a class="text-white font-bold text-lg" href="/check">Check</a>
+              </li>
+            </ul>
+          </div>
+          <div class="hidden">
+            <a
+              class="inline-block px-12 py-4 text-white font-bold border border-gray-200 hover:border-white rounded-full"
+              href="#"
+              >Sign Up</a
+            >
+          </div>
+        </nav>
+        <div
+          class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50"
+        >
+          <div
+            class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-80"
+          ></div>
+          <nav
+            class="relative flex flex-col py-8 h-full w-full bg-white overflow-y-auto"
+          >
+            <div class="flex items-center mb-16 pr-6">
+              <a class="ml-10 text-2xl text-gray-800 font-bold" href="#">
+                <img
+                  class="h-7"
+                  src="zospace-assets/logos/zospace-dark-logo.svg"
+                  alt=""
+                  width="auto"
+                />
+              </a>
+            </div>
+            <div>
+              <ul>
+                <li class="mb-1 px-10">
+                  <a
+                    class="block pl-8 py-4 text-xl text-gray-800 hover:bg-blueGray-50 rounded-xl"
+                    href="#"
+                    >Product</a
+                  >
+                </li>
+                <li class="mb-1 px-10">
+                  <a
+                    class="block pl-8 py-4 text-xl text-gray-800 hover:bg-blueGray-50 rounded-xl"
+                    href="#"
+                    >Story</a
+                  >
+                </li>
+                <li class="mb-1 px-10">
+                  <a
+                    class="block pl-8 py-4 text-xl text-gray-800 hover:bg-blueGray-50 rounded-xl"
+                    href="#"
+                    >Features</a
+                  >
+                </li>
+                <li class="mb-1 px-10">
+                  <a
+                    class="block pl-8 py-4 text-xl text-gray-800 hover:bg-blueGray-50 rounded-xl"
+                    href="#"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mt-auto px-10">
+              <div class="pt-6">
+                <a
+                  class="block mb-4 py-4 px-12 text-gray-800 text-center font-bold border border-gray-50 hover:border-gray-100 rounded-full"
+                  href="#"
+                  >Sign in</a
+                ><a
+                  class="block py-4 px-12 text-white text-center font-bold bg-blue-500 hover:bg-blue-600 rounded-full transition duration-200"
+                  href="#"
+                  >Sign up</a
+                >
+              </div>
+              <p class="mt-6 mb-4 text-lg text-center">
+                <span>2021 &copy; Zospace. All rights reserved.</span>
+              </p>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <br />
+      <div class="container mx-auto">
+        <div>
+          <form action="/compare" enctype="multipart/form-data" method="post">
+            <label for="file1">Upload File #1</label>
+            <input
+              class="form-control block w-full px-2 py-1.5 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              type="file"
+              id="file1"
+              name="file1"
+            />
+
+            <label for="file1">Upload File #2</label>
+            <input
+              class="form-control block w-full px-2 py-1.5 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              type="file"
+              id="file2"
+              name="file2"
+            />
+            <br />
+
+            <h5>Algorithm</h5>
+            <input type="radio" name="algorithm" value="lines" checked />
+            Lines<br />
+            <input type="radio" name="algorithm" value="sentences" />
+            Sentences<br />
+            <input type="radio" name="algorithm" value="substrings" />
+            Substrings<br />
+            <br />
+
+            <h5>Length (for Substrings algorithm)</h5>
+            <input class="form-control" type="text" name="length" />
+            <br /><br />
+
+            <input
+              class="text-center text-indigo-400 font-bold rounded py-2 w-2/12 focus:outline-none bg-gray-900 border-2 border-indigo-400"
+              type="submit"
+              value="Submit"
+            />
+          </form>
+        </div>
+      </div>
+      <br />
+      <section class="py-20 2xl:py-40 bg-gray-800">
+        <div class="container px-4 mx-auto">
+          <div
+            class="flex flex-wrap -mx-4 pb-24 mb-16 border-b border-gray-400"
+          >
+            <div class="w-full lg:w-2/5 px-4 mb-16 lg:mb-0">
+              <span class="text-lg text-blue-400 font-bold"
+                >We&apos;re Zospace</span
+              >
+              <h2
+                class="max-w-sm mt-8 mb-12 text-5xl text-white font-bold font-heading"
+              >
+                Thank you for your time
+              </h2>
+              <p class="mb-16 text-gray-300">
+                The brown fox jumps over the lazy dog.
+              </p>
+              <div>
+                <a
+                  class="inline-block mb-4 sm:mb-0 sm:mr-4 py-4 px-12 text-white font-bold bg-blue-500 hover:bg-blue-600 rounded-full transition duration-200"
+                  href="#"
+                  >Active demo</a
+                ><a
+                  class="inline-block px-12 py-4 text-white font-bold border border-gray-200 hover:border-white rounded-full"
+                  href="#"
+                  >Contact</a
+                >
+              </div>
+            </div>
+            <div class="w-full lg:w-3/5 px-4">
+              <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-16 lg:mb-0">
+                  <ul class="text-lg">
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Hello</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Story</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Pricing</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Applications</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Stats</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Blog</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-16 lg:mb-0">
+                  <ul class="text-lg">
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Newsletter</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Features</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >How it works</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >FAQ</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Portfolio</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Team</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="w-full lg:w-1/3 px-4">
+                  <ul class="text-lg">
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >New account</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Log in</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Testimonials</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Contact</a
+                      >
+                    </li>
+                    <li class="mb-6">
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Privacy Policy</a
+                      >
+                    </li>
+                    <li>
+                      <a class="text-gray-200 hover:text-gray-100" href="#"
+                        >Cookies</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="md:flex justify-between">
+            <p class="text-lg text-gray-200 mb-8 md:mb-0">
+              &copy; 2021 Shuffle. All rights reserved.
+            </p>
+            <div class="flex items-center">
+              <a class="inline-block mr-2" href="#">
+                <img
+                  class="h-12"
+                  src="zospace-assets/logos/facebook.svg"
+                  alt=""
+                />
+              </a>
+              <a class="inline-block mr-2" href="#">
+                <img
+                  class="h-12"
+                  src="zospace-assets/logos/instagram.svg"
+                  alt=""
+                />
+              </a>
+              <a class="inline-block" href="#">
+                <img
+                  class="h-12"
+                  src="zospace-assets/logos/twitter.svg"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
+</html>
